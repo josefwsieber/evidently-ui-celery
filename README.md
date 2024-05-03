@@ -24,7 +24,7 @@ Clone the repository:
 ```git clone https://github.com/jsieber2/evidently-ui-celery.git```
 
 Navigate to the project directory:
-```cd evidently-ui-celery-extension```
+```cd evidently-ui-celery```
 
 Build and start the Docker containers using Docker Compose:
 ```docker-compose up --build```
