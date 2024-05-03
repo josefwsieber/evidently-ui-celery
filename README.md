@@ -56,6 +56,9 @@ This project is licensed under the MIT License. -->
 # Acknowledgements
 
 Evidently - Open-source tool for monitoring machine learning models
+<br>
 Celery - Distributed task queue library for Python
+<br>
 Docker - Containerization platform
+<br>
 Docker Compose - Tool for defining and running multi-container Docker applications
