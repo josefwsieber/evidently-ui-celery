@@ -6,9 +6,9 @@ The main goal of this project is to simplify the process of integrating Evidentl
 By leveraging the power of Celery and Docker Compose, this extension allows users to quickly set up and run Evidently UI without the need for a complex orchestration infrastructure.
 # Features
 
-#### Seamless integration with Evidently UI
-#### Celery-based task scheduling for easy monitoring setup
-#### Docker Compose for simple orchestration and deployment
+ Seamless integration with Evidently UI
+ Celery-based task scheduling for easy monitoring setup
+ Docker Compose for simple orchestration and deployment
 Ideal for users who want to adopt Evidently without an existing orchestration setup
 
 # Prerequisites
