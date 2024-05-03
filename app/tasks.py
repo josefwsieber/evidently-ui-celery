@@ -5,12 +5,15 @@ from datetime import datetime
 import pandas as pd
 from sklearn import datasets
 from evidently.ui.workspace import Workspace
+import os
 
 import create_functions
 
+MESSAGE_QUEUE_URL = os.getenv('MESSAGE_QUEUE_URL', 'redis://localhost:6379')
+
 # Define app with a local redis broker
 # Docker-compose fills in the relevant network details
-app = Celery('tasks', broker='redis://redis:6379')
+app = Celery('tasks', broker=MESSAGE_QUEUE_URL)
 
 
 

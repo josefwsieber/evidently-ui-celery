@@ -1,18 +1,12 @@
 version: '3'
 services:
+  # message / task queue
   redis:
     image: redis
     ports:
       - "6379:6379"
 
-  celery:
-    build: ./app
-    command: celery -A tasks worker --loglevel=info
-    volumes:
-      - ./app:/app
-    depends_on:
-      - redis
-
+  # task scheduler - enqueue tasks which result in celery picking them up
   celery-beat:
     build: ./app
     command: celery -A tasks beat --loglevel=info
@@ -20,13 +14,25 @@ services:
       - ./app:/app
     depends_on:
       - redis
+    environment:
+      MESSAGE_QUEUE_URL: redis://redis:6379
 
+  # task worker - picks up and fulfills tasks from the queue; writes reports to disk in /app/workspace/
+  celery:
+    build: ./app
+    command: celery -A tasks worker --loglevel=info
+    volumes:
+      - ./app:/app
+    depends_on:
+      - redis
+    environment:
+      MESSAGE_QUEUE_URL: redis://redis:6379
+
+  # web interface - visualizes ML project reports stored on disk as JSON files in /app/workspace/
   evidently-ui:
     build: ./app
     command: evidently ui 
     volumes:
       - ./app:/app
-    depends_on:
-      - redis
     ports:
       - '8000:8000'
