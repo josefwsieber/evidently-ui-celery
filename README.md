@@ -14,8 +14,8 @@ Ideal for users who want to adopt Evidently without an existing orchestration se
 # Prerequisites
 Before running this project, ensure that you have the following installed on your system:
 
-Docker
-Docker Compose
+<b>Docker</b><br>
+<b>Docker Compose</b>
 
 # Getting Started
 To get started with Evidently UI with Celery Task Scheduling, follow these steps:
