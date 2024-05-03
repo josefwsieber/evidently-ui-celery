@@ -2,7 +2,7 @@
 This project is an extension to Evidently UI that incorporates Celery for scheduling tasks, making it easier for users to adopt Evidently for monitoring their machine learning models when they don't have an existing setup for orchestration.
 
 # Purpose
-The main goal of this project is to simplify the process of integrating Evidently into your machine learning workflow by providing a convenient way to schedule monitoring tasks using Celery. <br>
+The main goal of this project is to simplify the process of integrating Evidently into your machine learning workflow by providing a convenient way to schedule monitoring tasks using Celery. <br> <br>
 By leveraging the power of Celery and Docker Compose, this extension allows users to quickly set up and run Evidently UI without the need for a complex orchestration infrastructure.
 # Features
 
