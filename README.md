@@ -32,7 +32,7 @@ Build and start the Docker containers using Docker Compose:
 This command will build the necessary Docker images and start the containers for Evidently UI, Celery, and any other required services.
 
 Access the Evidently UI by opening your web browser and navigating to:
-```http://localhost:8080```
+```http://localhost:8000```
 
 You should now see the Evidently UI dashboard, where you can configure and monitor your machine learning models.
 
