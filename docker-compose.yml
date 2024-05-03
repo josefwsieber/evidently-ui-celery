@@ -31,7 +31,8 @@ services:
   # web interface - visualizes ML project reports stored on disk as JSON files in /app/workspace/
   evidently-ui:
     build: ./app
-    command: evidently ui 
+    # sleep 5 seconds, if evidently ui checks worskpace too early it doesn't register the project if just created
+    command: sh -c "sleep 5 && evidently ui"
     volumes:
       - ./app:/app
     ports:

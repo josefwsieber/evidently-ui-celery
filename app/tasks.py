@@ -26,6 +26,7 @@ PROJECT_DESCRIPTION = "Evidently AI + Celery"
 # This "create" function actually performs a get_or_create function 
 # within the evidently package
 workspace = Workspace.create(WORKSPACE)
+project = create_functions.get_or_create_project(workspace,PROJECT_NAME,PROJECT_DESCRIPTION)
 
 @app.task
 def daily_task():
@@ -39,7 +40,7 @@ def daily_task():
 def monitor_task_1():
     # we will run this every minute, so it loops from 0 to 4 repeatedly
     # This is where you would add your own evidently monitoring report creation
-    i = datetime.now().minute % 5
+    i = datetime.now().second % 5
 
     #initiate datasets from the evidently tutorial
     adult_data = datasets.fetch_openml(name="adult", version=2, as_frame="auto")
