@@ -8,18 +8,20 @@ from evidently.ui.workspace import Workspace
 
 import create_functions
 
+# Define app with a local redis broker
+# Docker-compose fills in the relevant network details
 app = Celery('tasks', broker='redis://redis:6379')
 
 
 
-
+# Define project specifications here
 WORKSPACE = "workspace"
-
 PROJECT_NAME = "My First MLOps Project"
 PROJECT_DESCRIPTION = "Evidently AI + Celery"
 
 
-# Create or get workspace
+# This "create" function actually performs a get_or_create function 
+# within the evidently package
 workspace = Workspace.create(WORKSPACE)
 
 @app.task
@@ -33,9 +35,10 @@ def daily_task():
 @app.task 
 def monitor_task_1():
     # we will run this every minute, so it loops from 0 to 4 repeatedly
+    # This is where you would add your own evidently monitoring report creation
     i = datetime.now().minute % 5
 
-    #initiate datasets
+    #initiate datasets from the evidently tutorial
     adult_data = datasets.fetch_openml(name="adult", version=2, as_frame="auto")
     adult = adult_data.frame
     adult_ref = adult[~adult.education.isin(["Some-college", "HS-grad", "Bachelors"])]
@@ -49,6 +52,7 @@ def monitor_task_1():
 
     test_suite = create_functions.create_test_suite(i=i,reference_df=adult_ref,current_df=adult_cur)
     workspace.add_test_suite(project.id, test_suite)
+    return 'Monitoring Ran Successfully'
 
 
 
