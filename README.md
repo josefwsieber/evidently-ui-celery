@@ -1,5 +1,5 @@
 # Evidently UI Extension with Celery Task Scheduling
-## Video Walkthrough ->
+## [Video Walkthrough](https://www.youtube.com/watch?v=LVglC8KsWz4) ->
 [![Alt Text](https://img.youtube.com/vi/LVglC8KsWz4/0.jpg)](https://www.youtube.com/watch?v=LVglC8KsWz4)
 
 
