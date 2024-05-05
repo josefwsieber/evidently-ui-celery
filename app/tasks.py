@@ -40,7 +40,7 @@ def daily_task():
 def monitor_task_1():
     # we will run this every minute, so it loops from 0 to 4 repeatedly
     # This is where you would add your own evidently monitoring report creation
-    i = datetime.now().second % 5
+    i = datetime.now().minute % 5
 
     #initiate datasets from the evidently tutorial
     adult_data = datasets.fetch_openml(name="adult", version=2, as_frame="auto")
